@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Enemy_master : MonoBehaviour
 {
@@ -42,5 +43,12 @@ public class Enemy_master : MonoBehaviour
         {
             _agent.isStopped = true;
         }
+
     }
+
+    private void OnCollisionEnter(Collision Player)
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
 }

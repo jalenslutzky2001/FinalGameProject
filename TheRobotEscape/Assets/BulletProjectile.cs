@@ -25,6 +25,7 @@ public class BulletProjectile : MonoBehaviour
         {
             // Hit Target
             Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
         }
         else
         {
@@ -33,4 +34,5 @@ public class BulletProjectile : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
 }
