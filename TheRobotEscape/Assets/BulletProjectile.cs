@@ -7,10 +7,12 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] private Transform vfxHitGreen;
     [SerializeField] private Transform vfxHitRed;
     private Rigidbody bulletRigidbody;
+    public AudioSource gameOver;
 
     private void Awake()
     {
         bulletRigidbody = GetComponent<Rigidbody>();
+        gameOver = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -26,6 +28,7 @@ public class BulletProjectile : MonoBehaviour
             // Hit Target
             Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+            gameOver.Play();
         }
         else
         {

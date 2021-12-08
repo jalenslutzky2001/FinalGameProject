@@ -13,10 +13,13 @@ public class Enemy_master : MonoBehaviour
     public bool isAngered;
 
     public NavMeshAgent _agent;
+    public Transform[] waypoints;
+
+    int m_CurrentWaypointIndex;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _agent.SetDestination(waypoints[0].position);
     }
 
     // Update is called once per frame
@@ -39,9 +42,10 @@ public class Enemy_master : MonoBehaviour
 
             _agent.SetDestination(Player.transform.position);
         }
-        if(!isAngered)
+        if (!isAngered && _agent.remainingDistance < _agent.stoppingDistance)
         {
-            _agent.isStopped = true;
+            m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+            _agent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
         }
 
     }

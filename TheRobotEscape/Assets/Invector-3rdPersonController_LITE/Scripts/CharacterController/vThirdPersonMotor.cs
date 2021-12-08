@@ -390,7 +390,7 @@ namespace Invector.vCharacterController
             [Tooltip("Character will limit the movement to walk instead of running")]
             public bool walkByDefault = false;
             [Tooltip("Rotate with the Camera forward when standing idle")]
-            public bool rotateWithCamera = false;
+            public bool rotateWithCamera = true;
             [Tooltip("Speed to Walk using rigidbody or extra speed if you're using RootMotion")]
             public float walkSpeed = 2f;
             [Tooltip("Speed to Run using rigidbody or extra speed if you're using RootMotion")]
