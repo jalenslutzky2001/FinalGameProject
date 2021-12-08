@@ -43,5 +43,17 @@ public class TheThirdPersonShooterController : MonoBehaviour
         {
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
+            Instantiate(Bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+
+        }
+        else
+        {
+            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+        }
     }
 }
